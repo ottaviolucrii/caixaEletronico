@@ -9,7 +9,6 @@ void exibirMenuPrincipal(){
   print('4 - Extrato');
   print('5 - Simular Investimento');
   print('6 - Pagar Contas');
-  print('7 - Doação para ONG');
   print('0 - Sair');
   print('Digite a opção desejada:');
 
