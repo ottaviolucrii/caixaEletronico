@@ -32,7 +32,7 @@ while(true){
     simularInvestimento(minhaConta);
     break;
     case '6':
-    //TODO implementar pagamento de contas, no branch pagamentos;
+    pagarConta(minhaConta);
     break;
     case '0':
     exibirMensagem('Saindo...');

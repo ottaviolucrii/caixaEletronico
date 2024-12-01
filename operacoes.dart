@@ -1,6 +1,7 @@
 import 'conta.dart';
 import 'investimentos.dart';
 import 'interface.dart';
+import 'pagamentos.dart';
 
 void simularInvestimento(Conta conta){
 
@@ -64,6 +65,44 @@ void exibirSaldo(Conta conta){
 
 void exibirExtrato(Conta conta){
   conta.exibirExtrato();
+}
+
+void pagarConta(Conta conta) {
+  exibirMensagem('=== Pagamento de Contas ===');
+  exibirMensagem('Informe o código de barras da conta:');
+  String codigoBarras = lerEntradaUsuario()!;
+
+  if (codigoBarras.length != 44) {
+    exibirErro('Código de barras inválido!');
+    return;
+  }
+
+  exibirMensagem('Informe o valor da conta:');
+  double valor = double.parse(lerEntradaUsuario()!);
+
+  if (valor <= 0) {
+    exibirErro('Valor inválido!');
+    return; 
+  }
+
+  if (conta.saldo < valor) {
+    exibirErro('Saldo insuficiente!');
+    return; 
+  }
+
+  String nomeBeneficiario = 'Empresa XPTO'; 
+
+  Pagamento pagamento = Pagamento(
+      codigoBarras,
+      valor,
+      nomeBeneficiario,
+  );
+
+  conta.sacar(valor); 
+
+  exibirMensagem('Pagamento realizado com sucesso!');
+  pagamento.exibirDetalhes();
+
 }
 
 
