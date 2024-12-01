@@ -37,3 +37,33 @@ Investimento investimento = Investimento(opcao, taxaJuros, valorInvestido, perio
 investimento.exibirDetalhes();
 
 }
+
+void realizarSaque(Conta conta){
+  print('Digite o valor a ser sacado:');
+  double valor = double.parse(lerEntradaUsuario()!);
+
+  if(conta.sacar(valor)){
+    exibirMensagem('Saque realizado com sucesso');
+  } else {
+    exibirMensagem('Saldo insuficiente');
+  }
+
+}
+
+void realizarDeposito(Conta conta){
+  exibirMensagem('Digite o valor a ser depositado:');
+  double valor = double.parse(lerEntradaUsuario()!);
+
+  conta.depositar(valor);
+  exibirMensagem('Depósito realizado com sucesso');
+}
+
+void exibirSaldo(Conta conta){
+  exibirMensagem('Saldo atual: R\$ ${conta.saldo}');
+}
+
+void exibirExtrato(Conta conta){
+  conta.exibirExtrato();
+}
+
+
