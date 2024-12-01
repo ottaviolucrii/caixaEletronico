@@ -72,7 +72,7 @@ void pagarConta(Conta conta) {
   exibirMensagem('Informe o código de barras da conta:');
   String codigoBarras = lerEntradaUsuario()!;
 
-  if (codigoBarras.length != 44) {
+  if (codigoBarras.length != 7) {
     exibirErro('Código de barras inválido!');
     return;
   }
